@@ -1,7 +1,7 @@
 //node
 const inquirer = require("inquirer");
 const fs = require("fs");
-const team = require("./codeStyle/index");
+const team = require("./codeStyle/page");
 //lib files
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib//intern");
