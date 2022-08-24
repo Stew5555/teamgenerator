@@ -72,7 +72,7 @@ const questions = async () => {
                     answers.name,
                     answers.id,
                     answers.email,
-                    githubAns.github
+                    githubAnsewrs.github
                   );
                   newEmployeeInfo.push(newEngineer);
 
@@ -89,7 +89,7 @@ const questions = async () => {
                         answers.name,
                         answers.id,
                         answers.email,
-                        internAns.school
+                        internAnswer.school
                       );
                       newEmployeeInfo.push(newIntern); 
 
@@ -111,7 +111,7 @@ async function promptQuestions() {
     if (addMemberAnswers.addMember === "Add a new member") {
         return promptQuestions()
     }
-    return fcreateTeam();
+    return createTeam();
 }
 
 promptQuestions();
