@@ -39,10 +39,10 @@ const questions = async () => {
   
   
       
-      //  console.log(answers);
-        // if manager selected, answer these specific question
-        if (answers.role === "Manager") {
-          const managerAnsewrs = await inquirer
+            //  console.log(answers);
+             // if manager selected, answer these specific question
+            if (answers.role === "Manager") {
+            const managerAnsewrs = await inquirer
             .prompt([
               {
                 type: "input",
@@ -59,7 +59,7 @@ const questions = async () => {
             newEmployeeInfo.push(newManger);
 
 
-        }else if (answers.role ==="Engineer") {
+            }else if (answers.role ==="Engineer") {
             const githubAnsewrs = await inquirer
             .prompt([
                 {
@@ -74,13 +74,40 @@ const questions = async () => {
                     answers.email,
                     githubAns.github
                   );
-                  newStaffMemberData.push(newEngineer);
+                  newEmployeeInfo.push(newEngineer);
+
+            }else if (answers.role === "Intern") {
+                    const internAnswer = await inquirer
+                    .prompt([{ 
+
+                        type: "input",
+                        message: "What university did you attend?",
+                        name: "school",
+                     }
+                ])
+                    const newIntern = new Intern(
+                        answers.name,
+                        answers.id,
+                        answers.email,
+                        internAns.school
+                      );
+                      newEmployeeInfo.push(newIntern); 
 
                 }
             
-        }
+        };
 
+async function promptQuestions() {
+    await questions()
 
+    const addMemberAnswers = await inquirer
+    .prompt([{
+        name:'addMember',
+        type: 'list',
+        choices: ['Add a new member', 'Create team'],
+        message: "What would you like to do next?"
+    }])
+}
     
 
 };
