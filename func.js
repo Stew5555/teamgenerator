@@ -107,7 +107,20 @@ async function promptQuestions() {
         choices: ['Add a new member', 'Create team'],
         message: "What would you like to do next?"
     }])
-}
-    
 
-};
+    if (addMemberAnswers.addMember === "Add a new member") {
+        return promptQuestions()
+    }
+    return fcreateTeam();
+}
+
+promptQuestions();
+
+function createTeam () {
+    console.log("new member", newEmployeeInfo)
+    fs.writeFileSync(
+        "./codeStyle/index.html",
+        generateTeam(newEmployeeInfo),
+        "utf-8"
+    );
+}
